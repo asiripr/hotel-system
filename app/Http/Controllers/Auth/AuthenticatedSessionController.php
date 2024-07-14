@@ -31,7 +31,7 @@ class AuthenticatedSessionController extends Controller
         
         // condition is here
         if ($request->user()->usertype === 'admin') {
-            return redirect('admin/dashboard');
+            return redirect('admin/gh'); // 127.0.0.1:8000/home
         }
 
         return redirect()->intended(route('dashboard')); // removed---> absolute: false
