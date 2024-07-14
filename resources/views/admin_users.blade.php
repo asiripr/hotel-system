@@ -24,11 +24,8 @@
   </head>
   <body>
     <div class="container-scroller">
-        
       <div class="row p-0 m-0 proBanner" id="proBanner">
-        
         <div class="col-md-12 p-0 m-0">
-            
           <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
             <div class="ps-lg-1">
               <div class="d-flex align-items-center justify-content-between">
@@ -46,7 +43,6 @@
         </div>
       </div>
       <!-- partial:partials/_sidebar.html -->
-      
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
           <a class="sidebar-brand brand-logo" href="index.html"><img src="admin/assets/images/logo.svg" alt="logo" /></a>
@@ -94,7 +90,8 @@
         </ul>
       </nav>
       <!-- partial -->
-      
+      <!--table should be here-->
+      <h1>user data</h1>
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
