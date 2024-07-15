@@ -30,4 +30,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 // ---------------
+<<<<<<< HEAD
+Route::get('/admin/dashboard', [HomeController::class,'index'])->middleware(['auth','admin']);
+=======
 Route::get('admin_dashboard', [HomeController::class,'index']);
+>>>>>>> b3
