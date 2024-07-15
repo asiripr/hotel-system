@@ -15,6 +15,8 @@ Route::get('/home', function () {
 
 Route::get('/admin_users', [AdminController::class,'users']);
 
+Route::get('/deleteuser/{id}', [AdminController::class,'deleteuser']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
