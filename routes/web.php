@@ -30,5 +30,5 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 // ---------------
-Route::get('/admin/dashboard', [HomeController::class,'index'])->middleware(['auth','admin']);
+Route::get('/admin_dashboard', [HomeController::class,'index'])->middleware(['auth','admin']);
 
