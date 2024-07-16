@@ -15,6 +15,9 @@ Route::get('/home', function () {
 
 Route::get('/admin_users', [AdminController::class,'users']);
 
+
+Route::get('/foodmenu', [AdminController::class,'foodmenu']);
+
 Route::get('/deleteuser/{id}', [AdminController::class,'deleteuser']);
 
 Route::get('/dashboard', function () {

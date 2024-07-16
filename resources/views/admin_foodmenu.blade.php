@@ -94,7 +94,29 @@
         </ul>
       </nav>
       <!-- partial -->
-      
+      <div style="position: relative; top: 60px; right:-150px">
+        <form action="">
+            <div>
+                <label>Title</label>
+                <input type="text" name="title" placeholder="Write a title" required>
+            </div>
+            <div>
+                <label>Price</label>
+                <input type="num" name="price" placeholder="Price" required>
+            </div>
+            <div>
+                <label>Image</label>
+                <input type="file" name="image" required>
+            </div>
+            <div>
+                <label>Description</label>
+                <input type="text" name="description" placeholder="Description" required>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+      </div>
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
