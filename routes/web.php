@@ -15,7 +15,11 @@ Route::get('/home', function () {
 
 Route::get('/admin_users', [AdminController::class,'users']);
 
+Route::get('/foodmenu', [AdminController::class,'foodmenu']);
+
 Route::get('/deleteuser/{id}', [AdminController::class,'deleteuser']);
+
+Route::post('/uploadfood', [AdminController::class,'upload']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -30,5 +34,5 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 // ---------------
-Route::get('/admin/dashboard', [HomeController::class,'index'])->middleware(['auth','admin']);
+Route::get('/admin_dashboard', [HomeController::class,'index'])->middleware(['auth','admin']);
 

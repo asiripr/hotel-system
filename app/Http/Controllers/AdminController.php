@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Food;
 
 
 class AdminController extends Controller
@@ -17,6 +18,35 @@ class AdminController extends Controller
     public function deleteuser($id){
         $data=user::find($id);
         $data->delete();
+        return redirect()->back();
+    }
+
+    public function foodmenu(){
+        return view("admin_foodmenu");
+    }
+
+    public function upload(Request $request){
+        $data = new food;
+
+        // image will save in foodimage folder in public folder>>>
+        $image = $request->image;
+
+        $imagename = time().'.'.$image->getClientOriginalExtension();
+        $request->image->move('foodimage',$imagename);
+        $data->image = $imagename;
+
+        //save the title
+        $data->title = $request->title;
+
+        //save the price
+        $data->price = $request->price;
+
+        //save the description
+        $data->description = $request->description;
+
+        // apply save
+        $data->save();
+
         return redirect()->back();
     }
 
