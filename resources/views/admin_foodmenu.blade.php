@@ -95,7 +95,8 @@
       </nav>
       <!-- partial -->
       <div style="position: relative; top: 60px; right:-150px">
-        <form action="">
+        <form action="{{url('/uploadfood')}}" method="post" enctype="multipart/form-data">
+          @csrf
             <div>
                 <label>Title</label>
                 <input type="text" name="title" placeholder="Write a title" required>
