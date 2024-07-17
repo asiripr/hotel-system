@@ -117,6 +117,28 @@
                 <input type="submit" value="Submit">
             </div>
         </form>
+        <!-- admin's table -->
+        <br><br>
+        <table style="background-color: darkseagreen">
+          <tr>
+            <th style="padding: 30px">Food Name</th>
+            <th style="padding: 30px">Price</th>
+            <th style="padding: 30px">Description</th>
+            <th style="padding: 30px">Image</th>
+            <th style="padding: 30px">Action</th>
+          </tr>
+          @foreach ($data as $data)
+          <tr align="center">
+            <td>{{$data->title}}</td>
+            <td>{{$data->price}}</td>
+            <td>{{$data->description}}</td>
+            <td><img src="/foodimage/{{$data->image}}" style="width: 200px; height:200px;"></td>
+            <td><a href="{{url('/deletemenu',$data->id)}}">Delete</a></td>
+          </tr>   
+          @endforeach
+          
+        </table>
+        <!--  -->
       </div>
       <!-- page-body-wrapper ends -->
     </div>

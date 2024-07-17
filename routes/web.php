@@ -5,9 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class,'welcome']);
 
 Route::get('/home', function () {
     return view('home');
@@ -20,6 +18,9 @@ Route::get('/foodmenu', [AdminController::class,'foodmenu']);
 Route::get('/deleteuser/{id}', [AdminController::class,'deleteuser']);
 
 Route::post('/uploadfood', [AdminController::class,'upload']);
+
+Route::get('/deletemenu/{id}', [AdminController::class,'deletemenu']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,4 +36,3 @@ require __DIR__.'/auth.php';
 
 // ---------------
 Route::get('/admin_dashboard', [HomeController::class,'index'])->middleware(['auth','admin']);
-
