@@ -71,11 +71,11 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{url('/foodmenu')}}">
                         <span class="menu-icon">
                             <i class="mdi mdi-speedometer"></i>
                         </span>
-                        <span class="menu-title">Foods</span>
+                        <span class="menu-title">Food Menu</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
