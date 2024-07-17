@@ -19,6 +19,9 @@ Route::get('/deleteuser/{id}', [AdminController::class,'deleteuser']);
 
 Route::post('/uploadfood', [AdminController::class,'upload']);
 
+Route::get('/deletemenu/{id}', [AdminController::class,'deletemenu']);
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
