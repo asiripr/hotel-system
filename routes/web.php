@@ -5,9 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class,'welcome']);
 
 Route::get('/home', function () {
     return view('home');
@@ -35,4 +33,3 @@ require __DIR__.'/auth.php';
 
 // ---------------
 Route::get('/admin_dashboard', [HomeController::class,'index'])->middleware(['auth','admin']);
-
