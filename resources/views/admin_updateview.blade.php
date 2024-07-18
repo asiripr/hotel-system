@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/public">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -95,52 +96,34 @@
       </nav>
       <!-- partial -->
       <div style="position: relative; top: 60px; right:-150px">
-        <form action="{{url('/uploadfood')}}" method="post" enctype="multipart/form-data">
+        <form action="{{url('/update',$data->id)}}" method="post" enctype="multipart/form-data">
           @csrf
             <div>
                 <label>Title</label>
-                <input type="text" name="title" placeholder="Write a title" required>
+                <input type="text" name="title" value="{{$data->title}}" required>
             </div>
             <div>
                 <label>Price</label>
-                <input type="num" name="price" placeholder="Price" required>
-            </div>
-            <div>
-                <label>Image</label>
-                <input type="file" name="image" required>
+                <input type="num" name="price" value="{{$data->price}}" required>
             </div>
             <div>
                 <label>Description</label>
-                <input type="text" name="description" placeholder="Description" required>
+                <input type="text" name="description" value="{{$data->description}}" required>
+            </div>
+            
+            <div>
+                <label>Old Image</label>
+                <img height="200" width="200" src="/foodimage/{{$data->image}}">
+            </div>
+            
+            <div>
+                <label>New Image</label>
+                <input type="file" name="image" required>
             </div>
             <div>
                 <input type="submit" value="Submit">
             </div>
         </form>
-        <!-- admin's table -->
-        <br><br>
-        <table style="background-color: darkseagreen">
-          <tr>
-            <th style="padding: 30px">Food Name</th>
-            <th style="padding: 30px">Price</th>
-            <th style="padding: 30px">Description</th>
-            <th style="padding: 30px">Image</th>
-            <th style="padding: 30px">Action 1</th>
-            <th style="padding: 30px">Action 2</th>
-          </tr>
-          @foreach ($data as $data)
-          <tr align="center">
-            <td>{{$data->title}}</td>
-            <td>{{$data->price}}</td>
-            <td>{{$data->description}}</td>
-            <td><img src="/foodimage/{{$data->image}}" style="width: 200px; height:200px;"></td>
-            <td><a href="{{url('/deletemenu',$data->id)}}">Delete</a></td>
-            <td><a href="{{url('/updateview',$data->id)}}">Update</a></td>
-          </tr>   
-          @endforeach
-          
-        </table>
-        <!--  -->
       </div>
       <!-- page-body-wrapper ends -->
     </div>
