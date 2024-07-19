@@ -27,6 +27,8 @@ Route::post('/update/{id}', [AdminController::class,'update']);
 
 Route::post('/reservation', [AdminController::class,'reservation']);
 
+Route::get('/viewreservation', [AdminController::class,'viewreservation']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
