@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
+use App\Models\Menathchefs;
 
 class HomeController extends Controller
 {
@@ -12,7 +13,8 @@ class HomeController extends Controller
     }
     public function welcome(){
         $data = food::all();
-        return view('home',compact("data"));
+        $data2 = menathchefs::all();
+        return view('home',compact("data","data2"));
     }
 
 }

@@ -76,7 +76,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('/viewchefs')}}">
+            <a class="nav-link" href="index.html">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
@@ -94,7 +94,23 @@
         </ul>
       </nav>
       <!-- partial -->
-      
+      <form action="{{url('/uploadchef')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div>
+          <label>Name</label>
+          <input style="color: blue" type="text" name="name" placeholder="Enter Name" required="">
+        </div>
+        <div>
+          <label>Speciality</label>
+          <input style="color: blue" type="text" name="speciality" placeholder="Enter Name" required="">
+        </div>
+        <div>
+          <input type="file" name="image" required="">
+        </div>
+        <div>
+          <input type="submit" value="Save">
+        </div>
+      </form>
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
