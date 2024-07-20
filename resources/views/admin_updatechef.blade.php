@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/public">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -94,45 +95,28 @@
         </ul>
       </nav>
       <!-- partial -->
-      <form action="{{url('/uploadchef')}}" method="post" enctype="multipart/form-data">
+      <form action="{{url('/updateafoodchef',$data->id)}}" method="post" enctype="multipart/form-data">
         @csrf
         <div>
           <label>Name</label>
-          <input style="color: blue" type="text" name="name" placeholder="Enter Name" required="">
+          <input style="color: blue" type="text" name="name" value="{{$data->name}}" required="">
         </div>
         <div>
           <label>Speciality</label>
-          <input style="color: blue" type="text" name="speciality" placeholder="Enter Name" required="">
+          <input style="color: blue" type="text" name="speciality" value="{{$data->speciality}}" required="">
         </div>
         <div>
+            <label>old image</label>
+            <img src="/chefimage/{{$data->image}}" height="300" width="300">
+        </div>
+        <div>
+            <label>new image</label>
           <input type="file" name="image" required="">
         </div>
         <div>
-          <input type="submit" value="Save">
+          <input type="submit" value="Update chef">
         </div>
       </form>
-
-      {{-- table ---------- --}}
-      <table>
-        <tr>
-          <th style="padding: 30px">Chef Name</th>
-          <th style="padding: 30px">Speciality</th>
-          <th style="padding: 30px">Image</th>
-          <th style="padding: 30px">Action 1</th>
-          <th style="padding: 30px">Action 2</th>
-        </tr>
-        @foreach ($data as $data)
-        <tr>
-          <td>{{$data->name}}</td>
-          <td>{{$data->speciality}}</td>
-          <td><img src="/chefimage/{{$data->image}}" height="100" width="100"></td>
-          <td><a href="{{url('/updatechef',$data->id)}}">Update</a></td>
-          <td><a href="{{url('/deletechef',$data->id)}}">Delete</a></td>
-        </tr>
-            
-        @endforeach
-      </table>
-      <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
