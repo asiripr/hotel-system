@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
 use App\Models\Reservation;
-
-
+use App\Models\Menathchefs;
 
 class AdminController extends Controller
 {
@@ -127,6 +126,29 @@ class AdminController extends Controller
     public function viewreservation(){
         $data = reservation::all();
         return view('admin_reservation',compact('data'));
+    }
+
+    public function viewchefs(){
+        return view('admin_chef');
+    }
+
+    public function uploadchef(Request $request){
+        $data = new menathchefs;
+
+        $data->name = $request->name;
+        $data->speciality = $request->speciality;
+
+        $image = $request->image;
+
+        $imagename = time().'.'.$image->getClientOriginalExtension();
+        $request->image->move('chefimage',$imagename);
+        $data->image = $imagename;
+
+        $data->save();
+
+        return redirect()->back();
+
+
     }
 
 }
