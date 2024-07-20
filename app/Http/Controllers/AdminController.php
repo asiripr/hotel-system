@@ -129,7 +129,8 @@ class AdminController extends Controller
     }
 
     public function viewchefs(){
-        return view('admin_chef');
+        $data = menathchefs::all();
+        return view('admin_chef', compact("data"));
     }
 
     public function uploadchef(Request $request){
@@ -149,6 +150,36 @@ class AdminController extends Controller
         return redirect()->back();
 
 
+    }
+    public function updatechef($id){
+        $data = menathchefs::find($id);
+        return view("admin_updatechef",compact("data"));
+    }
+
+    public function updateafoodchef(Request $request, $id){
+        $data = menathchefs::find($id);
+
+        $image = $request->image;
+
+        if ($image) {
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('chefimage',$imagename);
+            $data->image = $imagename;
+        }      
+
+        $data->name = $request->name;
+        $data->speciality = $request->speciality;
+
+
+        $data->save();
+
+        return redirect()->back();
+    }
+
+    public function deletechef($id){
+        $data=menathchefs::find($id);
+        $data->delete();
+        return redirect()->back();
     }
 
 }

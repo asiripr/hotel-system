@@ -33,6 +33,15 @@ Route::get('/viewchefs', [AdminController::class,'viewchefs']);
 
 Route::post('/uploadchef', [AdminController::class,'uploadchef']);
 
+Route::get('/updatechef/{id}', [AdminController::class,'updatechef']);
+
+Route::post('/updateafoodchef/{id}', [AdminController::class,'updateafoodchef']);
+
+Route::get('/deletechef/{id}', [AdminController::class,'deletechef']);
+
+
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
